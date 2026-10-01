@@ -1,31 +1,78 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import Carousel from "@/components/Carousel";
+import { ScrollableTabBar } from "@/components/Header";
+import { APPSECTIONS } from "@/constants/appSections";
+import { CATEGORIES } from "@/constants/categories";
+import { PILLS } from "@/constants/pills";
+import { STORES } from "@/constants/stores";
+import { useState } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function TabOneScreen() {
+  //Delivery as the initial page when starting the app
+  const [activeTab, setActiveTab] = useState("1");
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View
+          style={{ justifyContent: "flex-start", alignItems: "flex-start" }}
+        >
+          <ScrollableTabBar
+            tabs={APPSECTIONS}
+            activeTabId={activeTab}
+            onTabSelect={(id) => setActiveTab(id)}
+          />
+        </View>
+        {/* Main vertically scrollable content */}
+        <ScrollView contentContainerStyle={styles.main}>
+          <Carousel items={CATEGORIES} />
+          <Carousel items={PILLS} />
+          <Text style={styles.subtext}>
+            Delivery Fees & Service Fees are charged for delivery orders in
+            addition to item prices
+          </Text>
+          <Text
+            style={{
+              marginRight: "auto",
+              textDecorationLine: "underline",
+              padding: 12,
+              color: "#545454",
+            }}
+          >
+            Learn More
+          </Text>
+          <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
+          <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
+          <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
+          <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  main: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fff",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
+    fontFamily: "Inter",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
+  },
+  subtext: {
+    paddingHorizontal: 12,
+    color: "#545454",
   },
 });
