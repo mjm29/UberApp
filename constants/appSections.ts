@@ -1,3 +1,7 @@
+/**
+ * Links on the header component stored here
+ */
+
 import { HeaderTabItem } from "@/components/Header";
 import { Href } from "expo-router";
 

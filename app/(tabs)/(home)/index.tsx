@@ -1,3 +1,6 @@
+/**
+ * Main landing page
+ */
 import Carousel from "@/components/Carousel";
 import RestaurantCard from "@/components/RestaurantCard";
 import { CATEGORIES } from "@/constants/categories";
@@ -29,7 +32,7 @@ export default function TabOneScreen() {
             Learn More
           </Text>
           <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
-          <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
+          <Carousel items={STORES} sectionTitle="Stores Near you" />
           <RestaurantCard card={STORES[0]} singleCard={true} />
         </ScrollView>
       </SafeAreaView>

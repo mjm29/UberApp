@@ -1,3 +1,7 @@
+/**
+ * Header component of the app
+ */
+
 import { Href, Link } from "expo-router";
 import {
   Image,

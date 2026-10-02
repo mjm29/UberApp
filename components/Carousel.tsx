@@ -1,3 +1,8 @@
+/**
+ * Carousel component takes a set of objects and displays them in a horizontal scrollview
+ *  It also has an optional sectionTitle as a header
+ */
+
 import { useColorScheme } from "@/components/useColorScheme";
 import { Ionicons } from "@expo/vector-icons";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";

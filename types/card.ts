@@ -1,3 +1,8 @@
+/**
+ * interfaces for card like components
+ * for other types of cards, use extends
+ */
+
 import { ImageSourcePropType } from "react-native";
 
 export interface Card {
@@ -13,10 +18,4 @@ export interface StoreCard extends Card {
   deliveryTime: string;
   deliveryFee: number;
   rating: number;
-}
-
-//for individual items on display like grocery items
-export interface ItemCard extends Card {
-  price: string;
-  unitSize?: string;
 }
