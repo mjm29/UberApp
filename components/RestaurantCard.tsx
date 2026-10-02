@@ -5,39 +5,80 @@ import FavoriteButton from "./FavoriteButton";
 
 interface CardUI {
   card: StoreCard;
+  singleCard?: boolean;
   onPress?: () => void;
 }
 
-function RestaurantCard({ card, onPress }: CardUI) {
-  return (
-    <Pressable style={styles.container} onPress={onPress}>
-      <View style={styles.imageContainer}>
-        <Image
-          source={card.imageURL}
-          style={styles.cardImage}
-          resizeMode="cover"
-        />
-        {card.promoText ? (
-          <View style={styles.promoBadge}>
-            <Text style={styles.promoText}>{card.promoText}</Text>
-          </View>
-        ) : null}
-      </View>
-      <View style={styles.details}>
-        <View style={styles.detailHeader}>
-          <Text style={styles.title}>{card.name}</Text>
-          <FavoriteButton />
+function RestaurantCard({ card, singleCard, onPress }: CardUI) {
+  if (!singleCard) {
+    return (
+      <Pressable style={styles.container} onPress={onPress}>
+        <View style={styles.imageContainer}>
+          <Image
+            source={card.imageURL}
+            style={styles.cardImage}
+            resizeMode="cover"
+          />
+          {card.promoText ? (
+            <View style={styles.promoBadge}>
+              <Text style={styles.promoText}>{card.promoText}</Text>
+            </View>
+          ) : null}
         </View>
-        <Text style={styles.subtext}>
-          ${card.deliveryFee}・{card.deliveryTime}
-        </Text>
-        <Text style={styles.ratingText}>
-          {card.rating}
-          {<Ionicons name="star" />}
-        </Text>
-      </View>
-    </Pressable>
-  );
+        <View style={styles.details}>
+          <View style={styles.detailHeader}>
+            <Text style={styles.title}>{card.name}</Text>
+            <FavoriteButton />
+          </View>
+          <Text style={styles.subtext}>
+            ${card.deliveryFee}・{card.deliveryTime}
+          </Text>
+          <Text style={styles.ratingText}>
+            {card.rating}
+            {<Ionicons name="star" />}
+          </Text>
+        </View>
+      </Pressable>
+    );
+  } else {
+    return (
+      <Pressable
+        style={{
+          width: "100%",
+          height: 200,
+          paddingHorizontal: 8,
+          marginBottom: 12,
+        }}
+        onPress={onPress}
+      >
+        <View style={styles.imageContainer}>
+          <Image
+            source={card.imageURL}
+            style={styles.cardImage}
+            resizeMode="cover"
+          />
+          {card.promoText ? (
+            <View style={styles.promoBadge}>
+              <Text style={styles.promoText}>{card.promoText}</Text>
+            </View>
+          ) : null}
+        </View>
+        <View style={styles.details}>
+          <View style={styles.detailHeader}>
+            <Text style={styles.title}>{card.name}</Text>
+            <FavoriteButton />
+          </View>
+          <Text style={styles.subtext}>
+            ${card.deliveryFee}・{card.deliveryTime}
+          </Text>
+          <Text style={styles.ratingText}>
+            {card.rating}
+            {<Ionicons name="star" />}
+          </Text>
+        </View>
+      </Pressable>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

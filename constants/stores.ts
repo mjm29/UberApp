@@ -1,3 +1,18 @@
+/**
+ * This file stores all mock store data.
+ * To add a new store (either a single store or a set of them):
+ *    export const {Variable Name}: StoreCard or StoreCard[] for a set of stores {
+ *      id --> for mapping function
+ *      name --> store name
+ *      imageURL --> the format is require("path to image")
+ *      type: "card" --> always put card as its value
+ *      promoText --> optional prop: will render a red badge on the top left corner of the card (used for discounts and deals etc.)
+ *      deliveryFee
+ *      deliveryTime
+ *      rating
+ *    }
+ * Dont forget to import {Variable Name} from "@/constants/stores" on the page you are working on to use it
+ */
 import { StoreCard } from "../types/card";
 
 export const STORES: StoreCard[] = [

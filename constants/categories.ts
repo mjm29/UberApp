@@ -1,3 +1,6 @@
+/**
+ * Mock data for the categories carousel in the delivery page.
+ */
 import { Category } from "../types/category";
 
 export const CATEGORIES: Category[] = [

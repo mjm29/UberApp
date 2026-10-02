@@ -1,3 +1,7 @@
+/**
+ * Data for the sorting pills at the delivery page
+ */
+
 import { Pill } from "@/types/pill";
 
 export const PILLS: Pill[] = [

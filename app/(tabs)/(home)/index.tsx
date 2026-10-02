@@ -1,29 +1,15 @@
 import Carousel from "@/components/Carousel";
-import { ScrollableTabBar } from "@/components/Header";
-import { APPSECTIONS } from "@/constants/appSections";
+import RestaurantCard from "@/components/RestaurantCard";
 import { CATEGORIES } from "@/constants/categories";
 import { PILLS } from "@/constants/pills";
 import { STORES } from "@/constants/stores";
-import { useState } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function TabOneScreen() {
-  //Delivery as the initial page when starting the app
-  const [activeTab, setActiveTab] = useState("1");
-
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
-        <View
-          style={{ justifyContent: "flex-start", alignItems: "flex-start" }}
-        >
-          <ScrollableTabBar
-            tabs={APPSECTIONS}
-            activeTabId={activeTab}
-            onTabSelect={(id) => setActiveTab(id)}
-          />
-        </View>
         {/* Main vertically scrollable content */}
         <ScrollView contentContainerStyle={styles.main}>
           <Carousel items={CATEGORIES} />
@@ -44,8 +30,7 @@ export default function TabOneScreen() {
           </Text>
           <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
           <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
-          <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
-          <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
+          <RestaurantCard card={STORES[0]} singleCard={true} />
         </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
