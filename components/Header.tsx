@@ -1,3 +1,4 @@
+import { Href, Link } from "expo-router";
 import {
   Image,
   ImageSourcePropType,
@@ -12,6 +13,7 @@ export interface HeaderTabItem {
   id: string;
   label: string;
   icon?: ImageSourcePropType;
+  link?: Href;
 }
 
 interface ScrollableTabBarProps {
@@ -36,27 +38,29 @@ export function ScrollableTabBar({
           const isActive = tab.id === activeTabId;
 
           return (
-            <Pressable
-              key={tab.id}
-              style={styles.tabButton}
-              onPress={() => onTabSelect(tab.id)}
-            >
-              <View style={styles.tabInner}>
-                {tab.icon && (
-                  <Image
-                    source={tab.icon}
-                    style={styles.tabIcon}
-                    resizeMode="contain"
-                  />
-                )}
-                <Text
-                  style={[styles.tabLabel, isActive && styles.activeTabLabel]}
-                >
-                  {tab.label}
-                </Text>
-              </View>
-              {isActive && <View style={styles.activeIndicator} />}
-            </Pressable>
+            <Link key={tab.id} href={tab.link as Href} replace asChild>
+              <Pressable
+                key={tab.id}
+                style={styles.tabButton}
+                onPress={() => onTabSelect(tab.id)}
+              >
+                <View style={styles.tabInner}>
+                  {tab.icon && (
+                    <Image
+                      source={tab.icon}
+                      style={styles.tabIcon}
+                      resizeMode="contain"
+                    />
+                  )}
+                  <Text
+                    style={[styles.tabLabel, isActive && styles.activeTabLabel]}
+                  >
+                    {tab.label}
+                  </Text>
+                </View>
+                {isActive && <View style={styles.activeIndicator} />}
+              </Pressable>
+            </Link>
           );
         })}
       </ScrollView>

@@ -5,7 +5,7 @@ export default function Pickup() {
   return (
     <SafeAreaView>
       <View>
-        <Text>Replace w/ profile.tsx code</Text>
+        <Text>Replace w/ pickup.tsx code</Text>
       </View>
     </SafeAreaView>
   );

@@ -1,11 +1,11 @@
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function Pickup() {
+export default function DineOut() {
   return (
     <SafeAreaView>
       <View>
-        <Text>Replace w/ profile.tsx code</Text>
+        <Text>Replace w/ dineout.tsx code</Text>
       </View>
     </SafeAreaView>
   );

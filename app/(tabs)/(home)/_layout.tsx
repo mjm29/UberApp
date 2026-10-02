@@ -1,13 +1,13 @@
 import { ScrollableTabBar } from "@/components/Header";
 import { APPSECTIONS } from "@/constants/appSections";
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
 import { useState } from "react";
 
 export default function HomeLayout() {
   //Delivery as the initial page when starting the app
   const [activeTab, setActiveTab] = useState("1");
   return (
-    <Stack
+    <Tabs
       screenOptions={{
         header: () => (
           <ScrollableTabBar
@@ -16,10 +16,13 @@ export default function HomeLayout() {
             onTabSelect={(id) => setActiveTab(id)}
           />
         ),
+        tabBarStyle: { display: "none" },
       }}
     >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="rides" />
-    </Stack>
+      <Tabs.Screen name="index" />
+      <Tabs.Screen name="rides" />
+      <Tabs.Screen name="pickup" />
+      <Tabs.Screen name="dineout" />
+    </Tabs>
   );
 }
