@@ -6,6 +6,7 @@ import RestaurantCard from "@/components/RestaurantCard";
 import { CATEGORIES } from "@/constants/categories";
 import { PILLS } from "@/constants/pills";
 import { STORES } from "@/constants/stores";
+import { Link } from "expo-router";
 import { ScrollView, StyleSheet, Text } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
@@ -33,7 +34,9 @@ export default function TabOneScreen() {
           </Text>
           <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
           <Carousel items={STORES} sectionTitle="Stores Near you" />
-          <RestaurantCard card={STORES[0]} singleCard={true} />
+          <Link href="/store/subway" asChild>
+            <RestaurantCard card={STORES[0]} singleCard={true} />
+          </Link>
         </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
