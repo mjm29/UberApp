@@ -28,7 +28,6 @@ export default function TabLayout() {
           headerLeft: () => (
             <View style={{ flexDirection: "row", paddingLeft: 16, gap: 10 }}>
               <Ionicons name="location-outline" size={24} />
-              <Text>SAIT Polytechnic</Text>
               <Ionicons name="chevron-down-sharp" size={16} />
             </View>
           ),
