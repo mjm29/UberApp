@@ -1,66 +1,6 @@
-import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-import { Shop } from '../types/stores';
-
-const shops: Shop[] = [
-  {
-    id: '1',
-    name: '7-Eleven',
-    time: '10 min',
-    color: '#007953',
-    image: require('../assets/images/7eleven.jpeg'),
-  },
-  {
-    id: '2',
-    name: 'Sobeys',
-    time: '35 min',
-    color: '#fff',
-    image: require('../assets/images/sobeys.jpeg'),
-  },
-  {
-    id: '3',
-    name: 'Petro',
-    time: '13 min',
-    color: '#fff',
-    image: require('../assets/images/petro.png'),
-  },
-  {
-    id: '4',
-    name: 'Shell',
-    time: '16 min',
-    color: '#fff',
-    image: require('../assets/images/shell.png'),
-  },
-  {
-    id: '5',
-    name: 'Shoppers D...',
-    time: '13 min',
-    color: '#e31837',
-    image: require('../assets/images/shoppers.png'),
-  },
-  {
-    id: '6',
-    name: 'Dollarama',
-    time: '13 min',
-    color: '#fff',
-    badge: 'In-store prices',
-    image: require('../assets/images/dollar.png'),
-  },
-  {
-    id: '7',
-    name: 'london drugs',
-    time: '13 min',
-    color: '#004c97',
-    image: require('../assets/images/london.png'),
-  },
-  {
-    id: '8',
-    name: 'Rexall',
-    time: '15 min',
-    color: '#fff',
-    image: require('../assets/images/rexall.png'),
-  },
-];
+import { shops } from '../constants/categories';
 
 export default function ShopGrid() {
   return (

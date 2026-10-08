@@ -23,7 +23,7 @@ export default function ConvenienceCard() {
           <View key={card.id} style={styles.card}>
             {/* Header section */}
             <View style={styles.cardHeader}>
-              <Image source={card.storeLogo} style={styles.storeLogo} />
+              <Image source={card.storeLogo} style={styles.storeLogo} resizeMode="contain" />
               <View style={styles.headerText}>
                 <TouchableOpacity style={styles.titleRow} activeOpacity={0.7}>
                   <Text style={styles.categoryTitle}>{card.categoryTitle}</Text>
@@ -43,6 +43,7 @@ export default function ConvenienceCard() {
                       style={styles.productImage}
                       resizeMode="contain"
                     />
+                    
                     <TouchableOpacity style={styles.addButton} activeOpacity={0.8}>
                       <Text style={styles.plusIcon}>+</Text>
                     </TouchableOpacity>
@@ -79,8 +80,8 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   card: {
-    width: 310,
-    backgroundColor: '#fff',
+    width: 290,
+ 
     borderRadius: 16,
     borderWidth: 1,
     borderColor: '#eee',
@@ -92,9 +93,9 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   storeLogo: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 25,
+    height: 25,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: '#eee',
     marginRight: 10,
@@ -122,14 +123,14 @@ const styles = StyleSheet.create({
   },
   productsRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexWrap: 'wrap',
     gap: 12,
   },
   productCard: {
-    flex: 1,
+    width: '47%',
   },
   imageContainer: {
-    width: '100%',
+    width: '90%',
     height: 110,
     backgroundColor: '#f8f8f8',
     borderRadius: 12,
@@ -138,8 +139,8 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   productImage: {
-    width: '80%',
-    height: '80%',
+    width: '100%',
+    height: '100%',
   },
   addButton: {
     position: 'absolute',
