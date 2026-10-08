@@ -38,3 +38,32 @@ export const PILLS: Pill[] = [
   },
   { id: "8", label: "Sort", showOverlayButton: true, type: "pill" },
 ];
+
+export const pickupPills: Pill[] = 
+[
+ {
+    id: "1",
+    icon: require("../assets/images/offers.png"),
+    label: "Offers",
+    showOverlayButton: false,
+    type: "pill",
+  },
+  {id: "2",label: "Cuisine", icon: "arrow-down-sharp", showOverlayButton: false, type: "pill",},
+  {
+    id: "3",
+    icon: "medal-outline",
+    label: "Best overall",
+    showOverlayButton: false,
+    type: "pill",
+  },
+  {
+    id: "4",
+    icon: "star",
+    label: "Rating",
+    showOverlayButton: true,
+    type: "pill",
+  },
+
+
+
+]
