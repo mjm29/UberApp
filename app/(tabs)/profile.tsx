@@ -1,83 +1,75 @@
 import { Ionicons } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View , ScrollView} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { cs } from "../../styles/styles";
+import Features from "../../components/Features";
 
-export default function Pickup() {
+export default function Profile() {
   //user and not verified are one part
   return (
     <SafeAreaView style={[cs.screen, { flex: 1 }]}>
-      <View style={cs.screen}>
-        <View style={[cs.container, {alignItems: "center", marginBottom: 20, height:"20%"}]}>
+      <ScrollView>
+        <View style={cs.screen}>
+          <View style={[cs.container, {alignItems: "center", marginBottom: 20, height:"20%"}]}>
 
-          <View style={{justifyContent: "space-between"}}>
-            <Text style={cs.heading}>Marc Joseph Millare</Text>
-              <View
-                style={{
-                  width: "25%",
-                  height: "25%",
-                  borderRadius: 5,
-                  alignItems: "center",
-                  backgroundColor: "rgb(243, 243, 243)",
-                }}
-              >
-              <Text>Not verified</Text>
-              </View>
+            {/*user name and profile*/}
+            <View style={{justifyContent: "space-between"}}>
+              <Text style={cs.heading}>Marc Joseph Millare</Text>
+                <View
+                  style={{
+                    width: "25%",
+                    height: "25%",
+                    borderRadius: 5,
+                    alignItems: "center",
+                    backgroundColor: "rgb(243, 243, 243)",
+                  }}
+                >
+                <Text>Not verified</Text>
+                </View>
+            </View>
+            <View style={styles.profileIcon}>
+              <Ionicons name="person-circle-outline" color="white" size={40} />
+            </View>
           </View>
-          <View style={styles.profileIcon}>
-            <Ionicons name="person-circle-outline" color="white" size={40} />
+
+          {/*favorites, wallet, and orders box */}
+          <View style={[cs.container, { gap: 15 }]}>
+            <View style={styles.smallGrayBox}>
+              <Ionicons name="heart-outline" size={25}/>
+              <Text style={{ fontWeight: "medium" }}> Favorites</Text>
+            </View>
+
+            <View style={styles.smallGrayBox}>
+              <Ionicons name="wallet-outline" size={25} />
+              <Text style={{ fontWeight: "medium" }}> Wallet</Text>
+            </View>
+
+            <View style={styles.smallGrayBox}>
+              <Ionicons name="receipt-outline" size={25} />
+              <Text style={{ fontWeight: "medium" }}> Orders</Text>
+            </View>
           </View>
+          
+          {/*"Uber free" biger box that expands full width */}
+          <View style={[cs.container , styles.bigGrayBox, {marginTop: 10 , padding:20}]}>
+                <View>
+                  <Text style={{ fontWeight: "bold" , fontSize: 15, marginBottom: 6}}>Try Uber One free</Text>
+                  <Text>4 weeks free of $0 Delivery Fee and more</Text>
+                </View>
+
+                <View>
+                    <Ionicons name="gift" size={50}/>
+                </View>
+          </View>
+
+          {/*Uses Feature component to add multiple features that include icons and text per feature*/}
+          <Features/>
         </View>
-
-        <View style={[cs.container, { gap: 15 }]}>
-          <View style={styles.smallGrayBox}>
-            <Ionicons name="heart-outline" />
-            <Text style={{ fontWeight: "medium" }}> Favorites</Text>
-          </View>
-
-          <View style={styles.smallGrayBox}>
-            <Ionicons name="wallet-outline" />
-            <Text style={{ fontWeight: "medium" }}> Favorites</Text>
-          </View>
-
-          <View style={styles.smallGrayBox}>
-            <Ionicons name="receipt-outline" />
-            <Text style={{ fontWeight: "medium" }}> Favorites</Text>
-          </View>
-        </View>
-        
-        <View style={[cs.container , styles.bigGrayBox, {marginTop: 10 , padding:20}]}>
-              <View>
-                <Text style={{ fontWeight: "bold" , fontSize: 15, marginBottom: 6}}>Try Uber One free</Text>
-                <Text>4 weeks free of $0 Delivery Fee and more</Text>
-              </View>
-
-              <View>
-                  <Ionicons name="gift" size={50}/>
-              </View>
-        </View>
-
-        <View >
-          {features("people-outline", "Family and Teens")}
-          {features("car-outline", "Rides")}
-          {features("pricetag-outline", "Promotions")}
-          {features("gift-outline", "Send a gift")}
-          {features("restaurant-outline", "Dine out reservations")}
-          {features("help-buoy-outline", "Help")}
-        </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 
-const features = (icon: keyof typeof Ionicons.glyphMap, text: string) => {
-  return(
-    <View style={styles.features}>
-      <Ionicons name={icon} size={25}/>
-      <Text>{text}</Text>
-    </View>
-  )
-}
 
 const styles = StyleSheet.create({
   //got some of the profileIcon from ai
@@ -91,8 +83,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  smallGrayBox: {
-    flexDirection: "row",
+  smallGrayBox: { //favorites, wallet, orders
     flex: 1,
     backgroundColor: "rgb(243, 243, 243)",
     borderRadius: 15,
@@ -100,7 +91,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: 75,
   },
-  bigGrayBox: {
+
+  bigGrayBox: {//try uber free box
     flexDirection: "row",
     backgroundColor: "rgb(243, 243, 243)",
     borderRadius: 15,
@@ -108,9 +100,4 @@ const styles = StyleSheet.create({
     height: 100,
     marginBottom:20,
   },
-  features:{
-    flexDirection:"row",
-    gap:25,
-    marginVertical:10,
-  }
 });

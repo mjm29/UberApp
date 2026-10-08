@@ -10,10 +10,15 @@ export default function Features() {
 
 
     <View>
-      {FEATURES.map((feature) => ( //got this part from ai, because I forgot where the slides for this is
+      {FEATURES.map((feature) => ( //got map part from ai, because I forgot where the slides for this is
         <View key={feature.text} style={styles.features}>
           <Ionicons name={feature.icon} size={25} />
-          <Text>{feature.text}</Text>
+            <View>
+                <Text>{feature.text}</Text>
+                {feature.desc && ( //optional
+                <Text style={{fontSize: 10, marginTop: 3}}>{feature.desc}</Text>
+                )}
+            </View>
         </View>
       ))}
     </View>
@@ -26,5 +31,6 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     gap:25,
     marginVertical:10,
+    alignItems: "center",
   }
 });

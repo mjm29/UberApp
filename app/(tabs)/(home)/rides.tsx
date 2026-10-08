@@ -10,20 +10,12 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { cs } from "../../../styles/styles";
 
-//export default this is the main/default thing that this file exports
 export default function Rides() {
   const router = useRouter();
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/*first {} says I am about to put javascript inside the jsx attribute, then second says this is the actual js object containing your style */}
-      <View style={cs.screen}>
+    <View style={cs.screen}>
         <ScrollView>
-          <View style={[cs.notification, cs.ch]}>
-            <Image
-              style={cs.iconMd}
-              source={require("../../../assets/images/notification.png")}
-            />
-          </View>
           <View style={style.container}>
             <Text style={[cs.subheadingMiddle, cs.subheading]}>
               Request a ride
