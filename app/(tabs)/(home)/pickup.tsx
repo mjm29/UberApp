@@ -1,11 +1,13 @@
-import { Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import Carousel from "@/components/Carousel";
+import { PILLS } from "@/constants/pills";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function Pickup() {
   return (
     <SafeAreaView>
       <View>
-        <Text>Replace w/ pickup.tsx code</Text>
+          <Carousel items={PILLS}/>
       </View>
     </SafeAreaView>
   );
