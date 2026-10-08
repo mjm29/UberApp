@@ -23,6 +23,7 @@ export default function HomeLayout() {
       <Tabs.Screen name="rides" />
       <Tabs.Screen name="pickup" />
       <Tabs.Screen name="dineout" />
+      <Tabs.Screen name="convenience" />
     </Tabs>
   );
 }
