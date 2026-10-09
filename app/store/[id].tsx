@@ -1,3 +1,6 @@
+import DeliveryPickupToggle from "@/components/DeliveryPickupToggle";
+import MenuItem from "@/components/MenuItem";
+import { SUBWAYITEMS } from "@/constants/menuItems";
 import { STORES } from "@/constants/stores";
 import { Ionicons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
@@ -9,16 +12,17 @@ import {
   Text,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function RestaurantDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const course = STORES.find((s) => s.name === id);
+  const store = STORES.find((s) => s.name === id);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.heroContainer}>
           <Image
-            source={require("@/assets/images/subway.jpeg")}
+            source={store?.imageURL}
             style={styles.heroImage}
             resizeMode="cover"
           />
@@ -45,14 +49,72 @@ export default function RestaurantDetail() {
               source={require("@/assets/images/subway-logo.png")}
               style={styles.logo}
             />
-            <View style={styles.details}>
-              <Text>Subway</Text>
-              <Text>...</Text>
+            <View>
+              <Text style={styles.details}>{store?.name}</Text>
+              <Text>
+                4.0 <Ionicons name="star" /> (160+)
+              </Text>
+              <Text>
+                <Ionicons name="location" /> 5246 50 Avenue Se
+              </Text>
+              <Text style={styles.badge}>150+ people reordered</Text>
+            </View>
+          </View>
+          <DeliveryPickupToggle />
+          <View style={styles.infoBox}>
+            <View style={styles.borderLeft}>
+              <Text style={{ fontWeight: "700" }}>$0.99 Delivery Fee+</Text>
+              <Text style={{ fontWeight: "700" }}>$2.50-$6.50 Service Fee</Text>
+              <Text style={{ color: "#a5a5a5" }}>
+                Pricing & fees
+                <Ionicons name="information-circle-outline" />
+              </Text>
+            </View>
+            <View style={styles.borderRight}>
+              <Text style={{ fontWeight: "700" }}>22 min</Text>
+              <Text style={{ color: "#a5a5a5" }}>
+                Earliest arrival
+                <Ionicons name="information-circle-outline" />
+              </Text>
+            </View>
+          </View>
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.promoScrollContainer}
+          >
+            <Image
+              style={{ width: 320, height: 108 }}
+              source={require("@/assets/images/uber-one-ad.png")}
+              resizeMode="contain"
+            />
+            <Image
+              style={{ width: 300, height: 84 }}
+              source={require("@/assets/images/pickup-ad.png")}
+              resizeMode="contain"
+            />
+          </ScrollView>
+          <View>
+            <Text style={{ fontWeight: "900", fontSize: 20 }}>
+              Free with $20 purchase
+            </Text>
+            <Text style={{ color: "#a5a5a5" }}>Max 1 free item per order</Text>
+            <View
+              style={{
+                flexDirection: "row",
+                flexWrap: "wrap",
+                gap: 8,
+                paddingHorizontal: 4,
+              }}
+            >
+              {SUBWAYITEMS.map((item) => (
+                <MenuItem key={item.id} details={item} />
+              ))}
             </View>
           </View>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -92,13 +154,50 @@ const styles = StyleSheet.create({
   },
   title: {
     flexDirection: "row",
-    gap: 4,
+    gap: 16,
   },
   logo: {
     width: 64,
     height: 64,
   },
   details: {
-    flexDirection: "column",
+    fontWeight: "900",
+    fontSize: 24,
+  },
+  badge: {
+    backgroundColor: "#a4f4cf",
+    color: "#007a55",
+    paddingHorizontal: 4,
+    borderRadius: 4,
+  },
+  infoBox: {
+    flexDirection: "row",
+    marginBottom: 12,
+  },
+  borderLeft: {
+    alignItems: "center",
+    gap: 2,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#e3e3e3",
+    borderStyle: "solid",
+    borderTopLeftRadius: 24,
+    borderBottomLeftRadius: 24,
+  },
+  borderRight: {
+    width: "50%",
+    alignItems: "center",
+    gap: 2,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#e3e3e3",
+    borderStyle: "solid",
+    borderTopRightRadius: 24,
+    borderBottomRightRadius: 24,
+  },
+  promoScrollContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
   },
 });

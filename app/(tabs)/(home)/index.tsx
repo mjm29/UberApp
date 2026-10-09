@@ -34,7 +34,7 @@ export default function TabOneScreen() {
           </Text>
           <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
           <Carousel items={STORES} sectionTitle="Stores Near you" />
-          <Link href="/store/subway" asChild>
+          <Link href="/store/Subway" asChild>
             <RestaurantCard card={STORES[0]} singleCard={true} />
           </Link>
         </ScrollView>
