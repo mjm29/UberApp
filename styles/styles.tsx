@@ -1,37 +1,38 @@
-  import {StyleSheet} from "react-native";
-  
-  //cs = common style
-  export const cs = StyleSheet.create({
-    screen: {
-    flex: 1,//take up all the available space
+import { StyleSheet } from "react-native";
+
+//cs = common style
+export const cs = StyleSheet.create({
+  screen: {
+    flex: 1, //take up all the available space
     backgroundColor: "white",
     padding: 10,
   },
   container: {
-    flexDirection:"row",
+    flexDirection: "row",
     justifyContent: "space-between",
   },
-  ch: { //container header
+  ch: {
+    //container header
     flexDirection: "row",
     alignItems: "center",
     margin: 16,
   },
-  heading:{
-    fontSize: 35,
-    fontWeight: "bold",
+  heading: {
+    fontSize: 42,
+    fontWeight: "900",
   },
-  subheading:{
+  subheading: {
     fontWeight: "bold",
     fontSize: 22,
   },
-  subheadingMiddle:{
+  subheadingMiddle: {
     textAlign: "center",
   },
-  subheadingLeft:{
+  subheadingLeft: {
     textAlign: "left",
-    margin:12,
+    margin: 12,
   },
-  boldText:{
+  boldText: {
     fontWeight: "bold",
   },
   notification: {
@@ -41,13 +42,12 @@
     width: 18,
     height: 18,
   },
-  iconMd:{
-    height:35,
-    width:35,
+  iconMd: {
+    height: 35,
+    width: 35,
   },
   image: {
     height: 55,
     width: 55,
   },
-  
 });

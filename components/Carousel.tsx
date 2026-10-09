@@ -111,7 +111,7 @@ function Carousel({ items, sectionTitle, linkOn }: CarouselUI) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 300,
+    height: 280,
     marginHorizontal: 8,
     gap: 12,
   },

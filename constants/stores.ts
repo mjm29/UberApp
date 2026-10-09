@@ -36,3 +36,24 @@ export const STORES: StoreCard[] = [
     rating: 4.1,
   },
 ];
+
+export const REVIEWEDSTORES: StoreCard[] = [
+  {
+    id: "1",
+    name: "Lovely Sweets House & Takeout",
+    imageURL: require("../assets/images/lovely-sweets.png"),
+    type: "card",
+    deliveryFee: 3.99,
+    deliveryTime: "28 min.",
+    rating: 4.2,
+  },
+  {
+    id: "2",
+    name: "The Chai Bar",
+    imageURL: require("../assets/images/chai-tea-bar.jpg"),
+    type: "card",
+    deliveryFee: 0.99,
+    deliveryTime: "31 min.",
+    rating: 4.4,
+  },
+];

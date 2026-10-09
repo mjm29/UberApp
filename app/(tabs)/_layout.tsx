@@ -1,6 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link, Tabs } from "expo-router";
-import { SymbolView } from "expo-symbols";
 import { Pressable, Text, View } from "react-native";
 
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
@@ -28,6 +27,7 @@ export default function TabLayout() {
           headerLeft: () => (
             <View style={{ flexDirection: "row", paddingLeft: 16, gap: 10 }}>
               <Ionicons name="location-outline" size={24} />
+              <Text style={{ fontWeight: "700" }}>Current Location</Text>
               <Ionicons name="chevron-down-sharp" size={16} />
             </View>
           ),
@@ -43,18 +43,11 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Tab Two",
+          title: "",
           tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{
-                ios: "chevron.left.forwardslash.chevron.right",
-                android: "code",
-                web: "code",
-              }}
-              tintColor={color}
-              size={28}
-            />
+            <Ionicons name="person-circle-outline" size={24} />
           ),
+          headerShown: false,
         }}
       />
     </Tabs>
