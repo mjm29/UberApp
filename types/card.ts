@@ -19,3 +19,13 @@ export interface StoreCard extends Card {
   deliveryFee: number;
   rating: number;
 }
+
+//for dine out cards
+export interface DineOutCard extends Card {
+  rating: number;
+  reviewCount: string;
+  priceLevel: 1 | 2 | 3 | 4; // number of $ signs
+  distance: string; 
+  cuisine: string;
+  accentColor?: string; // colored info panel under the image 
+}
