@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   activeTabLabel: {
     fontWeight: "700",
-    color: "#000000",
+    color: "#000",
   },
   activeIndicator: {
     position: "absolute",
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 2.5,
-    backgroundColor: "#000000",
+    backgroundColor: "#000",
     borderRadius: 2,
   },
 });

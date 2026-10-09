@@ -13,9 +13,9 @@ import { cs } from "../../../styles/styles";
 export default function Rides() {
   const router = useRouter();
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-    <View style={cs.screen}>
-        <ScrollView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF" }}>
+      <View style={cs.screen}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={style.container}>
             <Text style={[cs.subheadingMiddle, cs.subheading]}>
               Request a ride

@@ -5,7 +5,7 @@ export const cs = StyleSheet.create({
   screen: {
     flex: 1, //take up all the available space
     backgroundColor: "white",
-    padding: 10,
+    paddingHorizontal: 10,
   },
   container: {
     flexDirection: "row",
