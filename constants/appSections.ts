@@ -34,6 +34,6 @@ export const APPSECTIONS: HeaderTabItem[] = [
     id: "5",
     label: "Convenience",
     icon: require("../assets/images/convenience.png"),
-    link: "(tabs)/(home)/rides" as Href,
+    link: "(tabs)/(home)/convenience" as Href,
   },
 ];
