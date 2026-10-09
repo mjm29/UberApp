@@ -1,30 +1,33 @@
 import Carousel from "@/components/Carousel";
-import { pickupPills, PILLS } from "@/constants/pills";
-import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import MapPreview from "@/components/MapIcon"
-import { STORES } from "@/constants/stores";
+import MapPreview from "@/components/MapIcon";
 import RestaurantCard from "@/components/RestaurantCard";
+import { pickupPills } from "@/constants/pills";
+import { STORES } from "@/constants/stores";
+import { ScrollView, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 export default function Pickup() {
   return (
     <SafeAreaView style={styles.container}>
-         <ScrollView contentContainerStyle={styles.main}>
-          <Carousel items={pickupPills}/>
-          <MapPreview/>
-          <RestaurantCard card={STORES[0]} singleCard={false} />
-          <RestaurantCard card={STORES[1]} singleCard={false} />
+      <ScrollView contentContainerStyle={styles.main}>
+        <Carousel items={pickupPills} />
+        <MapPreview />
+        <RestaurantCard card={STORES[0]} singleCard={true} />
+        <RestaurantCard card={STORES[1]} singleCard={true} />
       </ScrollView>
     </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1, backgroundColor: "#fff"
+    flex: 1,
+    backgroundColor: "#fff",
   },
   main: {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#fff",
+    gap: 8,
+    paddingHorizontal: 8,
   },
   title: {
     fontSize: 20,

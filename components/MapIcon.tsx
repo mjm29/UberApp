@@ -1,9 +1,9 @@
-import { View, Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, View } from "react-native";
 export default function MapPreview() {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/images/mapIcon.png')} // replace with your image path
+        source={require("../assets/images/mapIcon.png")} // replace with your image path
         style={styles.image}
         resizeMode="contain"
       />
@@ -13,13 +13,13 @@ export default function MapPreview() {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   image: {
-    width: 300,
-    height: 100,
+    width: 350,
+    height: 120,
   },
 });

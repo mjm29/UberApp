@@ -32,8 +32,16 @@ export default function TabOneScreen() {
           >
             Learn More
           </Text>
-          <Carousel items={STORES} sectionTitle="Featured on Uber Eats" />
-          <Carousel items={STORES} sectionTitle="Stores Near you" />
+          <Carousel
+            items={STORES}
+            sectionTitle="Featured on Uber Eats"
+            linkOn={true}
+          />
+          <Carousel
+            items={STORES}
+            sectionTitle="Stores Near you"
+            linkOn={true}
+          />
           <Link href="/store/Subway" asChild>
             <RestaurantCard card={STORES[0]} singleCard={true} />
           </Link>
